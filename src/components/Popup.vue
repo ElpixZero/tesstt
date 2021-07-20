@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isOpen" class="backdrop" @click="close">
+  <div class="backdrop" @click="close">
     <div class="popup" @click.stop>
       <h1>Внимание!</h1>
       <hr />
@@ -18,12 +18,6 @@
 
 <script>
 export default {
-  props: {
-    isOpen: {
-      type: Boolean,
-      required: true,
-    },
-  },
   emits: {
     ok: null,
     close: null,
@@ -38,7 +32,7 @@ export default {
 
   methods: {
     handleKeydown(e) {
-      if (this.isOpen && e.key === "Escape") {
+      if (e.key === "Escape") {
         this.close();
       }
     },
