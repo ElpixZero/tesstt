@@ -1,10 +1,6 @@
 <template>
   <button @click="openPopup">Открыть окно</button>
-  <Popup
-    :is-open="isPopupOpen"
-    @ok="popupConfirmed"
-    @close="isPopupOpen = false"
-  >
+  <Popup v-if="isPopupOpen" @ok="popupConfirmed" @close="isPopupOpen = false">
     Вы действительно хотите освоить правильные подходы к проектированию систем
     во Vue?
     <template #actions="{ confirm }">
